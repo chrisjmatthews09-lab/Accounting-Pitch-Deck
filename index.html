@@ -515,10 +515,6 @@
             const [activeTab, setActiveTab] = useState(0);
             const [sidebarOpen, setSidebarOpen] = useState(false);
             const mainContentRef = useRef(null);
-            
-            // Swipe vars
-            const touchStart = useRef(null);
-            const touchEnd = useRef(null);
 
             const pages = [
                 { title: "Home", icon: Icons.Home, component: <HeroPage onStart={() => setActiveTab(1)} /> },
@@ -543,18 +539,6 @@
 
             const nextTab = () => { if (activeTab < pages.length - 1) handleNav(activeTab + 1); };
             const prevTab = () => { if (activeTab > 0) handleNav(activeTab - 1); };
-
-            // Swipe Handlers
-            const onTouchStart = (e) => { touchEnd.current = null; touchStart.current = e.targetTouches[0].clientX; };
-            const onTouchMove = (e) => { touchEnd.current = e.targetTouches[0].clientX; };
-            const onTouchEnd = () => {
-                if (!touchStart.current || !touchEnd.current) return;
-                const distance = touchStart.current - touchEnd.current;
-                const isLeftSwipe = distance > 50;
-                const isRightSwipe = distance < -50;
-                if (isLeftSwipe) nextTab();
-                if (isRightSwipe) prevTab();
-            };
 
             return (
                 <div className="flex h-screen bg-slate-50 overflow-hidden font-sans text-slate-900">
@@ -597,7 +581,7 @@
                         )}
 
                         {/* Scrollable Page Content */}
-                        <main ref={mainContentRef} className="flex-1 overflow-y-auto p-4 md:p-8 md:px-12 bg-white md:bg-slate-50" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
+                        <main ref={mainContentRef} className="flex-1 overflow-y-auto p-4 md:p-8 md:px-12 bg-white md:bg-slate-50">
                             {pages[activeTab].component}
                         </main>
 
