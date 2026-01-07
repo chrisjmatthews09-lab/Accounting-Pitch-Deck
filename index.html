@@ -137,7 +137,7 @@
                         </Card>
                         <Card className="bg-slate-50 border-slate-200">
                             <p className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Horizon</p>
-                            <p className="text-lg font-bold text-slate-900">3-5 Years</p>
+                            <p className="text-lg font-bold text-slate-900">7-10 Years</p>
                         </Card>
                     </div>
                     <div className="pt-8">
@@ -395,23 +395,97 @@
         };
 
         const StrategyPage = () => (
-            <PageContainer title="Roll-Up Strategy" subtitle="The Path to a $10M-$20M Platform">
+            <PageContainer title="Roll-Up Strategy Roadmap" subtitle="The Path to a $10M-$20M Platform">
                 <div className="relative pl-8 md:pl-0">
                     <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-slate-200 -translate-x-1/2"></div>
                     <div className="md:hidden absolute left-4 top-0 bottom-0 w-0.5 bg-slate-200"></div>
                     {[
-                        { year: "Y1", title: "Platform Acquisition: Bookkeeping/CAS Firm", target: "$1M-$1.5M SDE | 70%+ recurring", detail: "Investment: $500K-$800K cash required" },
-                        { year: "Y2", title: "Tuck-In #1: Payroll Services", target: "$500K-$750K SDE | 90%+ recurring", detail: "Expected Lift: 30-40% revenue growth via cross-sell" },
-                        { year: "Y3", title: "Tuck-In #2: CPA/Tax Firm", target: "$750K-$1M SDE | Tax focus", detail: "Expected Lift: 20-30% revenue growth via cross-sell" },
-                        { year: "Y4", title: "Scale & Optimize", target: "Offshore labor | AI automation", detail: "Margin Expansion: 10-15 percentage points" },
-                        { year: "Y5", title: "Exit to PE Platform", target: "$8M-$12M revenue | $2.5M-$4M SDE", detail: "Exit Valuation: 4.0x-5.0x EBITDA = $10M-$20M+" }
+                        { year: "Y0", title: "Platform Acquisition: Bookkeeping/CAS Firm", target: "$1M-$1.5M SDE | 70%+ recurring", detail: "Investment: $500K-$800K cash required" },
+                        { 
+                            year: "Y1", 
+                            title: "Maintain Operations", 
+                            target: "Retain Clients & Employees", 
+                            detail: (
+                                <>
+                                    Listen, Watch, Learn, Analyze.
+                                    <div className="mt-1">Build Culture.</div>
+                                    <div className="mt-1">Create GTM Strategy.</div>
+                                </>
+                            )
+                        },
+                        { 
+                            year: "Y2", 
+                            title: "Scale & Optimize", 
+                            target: "Tech Stack | GTM | Operations", 
+                            detail: (
+                                <>
+                                    <div>Deploy GTM strategy</div>
+                                    <div className="mt-1">Update tech stack</div>
+                                    <div className="mt-1">Process improvements & automation</div>
+                                </>
+                            )
+                        },
+                        { 
+                            year: "Y3", 
+                            title: "Tuck-In #1: CPA/Bookkeeping Firm", 
+                            target: "$1M-$2M Revenue | 80%+ recurring", 
+                            detail: (
+                                <>
+                                    <div>Client & employee integration</div>
+                                    <div className="mt-1">Tech integration</div>
+                                    <div className="mt-1">Operations integration</div>
+                                </>
+                            )
+                        },
+                        { 
+                            year: "Y4", 
+                            title: "Organic Growth Focus", 
+                            target: "Product/Service Offerings | Offshore Labor", 
+                            detail: (
+                                <>
+                                    <div>Enhance product & service offerings</div>
+                                    <div className="mt-1">Add offshore labor teams</div>
+                                    <div className="mt-1">Margin expansion</div>
+                                </>
+                            )
+                        },
+                        { 
+                            year: "Y5", 
+                            title: "Tuck-In #2: CPA/Bookkeeping Firm", 
+                            target: "$2M-$4M Revenue | 80%+ recurring", 
+                            detail: (
+                                <>
+                                    <div>Client & employee integration</div>
+                                    <div className="mt-1">Tech integration</div>
+                                    <div className="mt-1">Operations integration</div>
+                                </>
+                            )
+                        },
+                        {
+                            year: "Y6",
+                            title: "Organic Growth Focus",
+                            target: "Cross-Sell | Partnerships",
+                            detail: (
+                                <>
+                                    <div>Partner channel sales</div>
+                                    <div className="mt-1">Cross-sell opportunities</div>
+                                    <div className="mt-1">Refine Product Offerings</div>
+                                </>
+                            )
+                        },
+                        { 
+                            year: "Y7", 
+                            title: "Exit to PE Platform", 
+                            target: "$8M-$12M+ Revenue | $2.5M-$5M+ EBITDA", 
+                            detail: "Exit valuation: 4.0x - 5.0x EBITDA = $10M-$20M+" 
+                        }
                     ].map((item, i) => (
                         <div key={i} className={`relative mb-12 md:w-1/2 ${i % 2 === 0 ? 'md:ml-auto md:pl-12' : 'md:mr-auto md:pr-12 md:text-right'}`}>
                             <div className={`absolute w-10 h-10 rounded-full border-4 border-white shadow-md flex items-center justify-center font-bold text-xs bg-blue-600 text-white z-10 ${i % 2 === 0 ? '-left-5 md:-left-5' : '-left-5 md:-right-5'}`}>{item.year}</div>
                             <Card className="hover:shadow-md transition-shadow text-left">
                                 <h3 className="font-bold text-lg text-slate-900 mb-2">{item.title}</h3>
                                 <p className="text-sm font-semibold text-blue-600 mb-3">{item.target}</p>
-                                <p className="text-sm text-slate-500">{item.detail}</p>
+                                <div className="text-sm text-slate-500">{item.detail}</div>
                             </Card>
                         </div>
                     ))}
@@ -878,16 +952,17 @@
         const ExitPage = () => (
             <PageContainer title="Exit Strategy" subtitle="Building to a $10M-$20M Exit">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-                    {[{l:"Revenue",v:"$8-12M"},{l:"EBITDA",v:"$2.5-4M"},{l:"Multiple",v:"4-5x"},{l:"Value",v:"$10-20M"}].map((item, i) => (
-                        <div key={i} className="bg-slate-900 text-white p-6 rounded-xl text-center">
-                            <div className="text-2xl md:text-3xl font-bold mb-1 text-emerald-400">{item.v}</div>
-                            <div className="text-xs text-slate-400 uppercase tracking-wider">{item.l}</div>
+                    {[{l:"Revenue",v:"$8-12M"},{l:"EBITDA",v:"$2.5-$5M"},{l:"Multiple",v:"4-5x"},{l:"Value",v:"$10-20M"}].map((item, i) => (
+                        <div key={i} className="bg-slate-900 text-white p-4 rounded-xl text-center flex flex-col justify-center">
+                            <div className="text-xl md:text-2xl font-bold mb-1 text-emerald-400">{item.v}</div>
+                            <div className="text-xs text-slate-400 uppercase tracking-wider font-bold">{item.l}</div>
                         </div>
                     ))}
                 </div>
                 <div className="mt-8 bg-emerald-600 text-white p-8 rounded-xl text-center shadow-lg">
-                    <h3 className="text-2xl font-bold mb-2">Projected Return: 8-12x Cash-on-Cash</h3>
-                    <p className="opacity-90">Initial investment: $700K-$1M total • Exit proceeds: $8M-$12M</p>
+                    <h3 className="text-2xl font-bold mb-1">Projected Return: 8x - 15x Cash-on-Cash (MOIC)</h3>
+                    <div className="text-xl font-bold mb-4 text-emerald-100">IRR: 35% - 55%</div>
+                    <p className="opacity-90">Initial investment: $700K-$1M total • Net Proceeds (after debt paydown): $8M-$15M</p>
                 </div>
             </PageContainer>
         );
@@ -936,9 +1011,9 @@
                 { title: "Thesis", icon: Icons.TrendingUp, component: <ThesisPage /> },
                 { title: "Market", icon: Icons.Target, component: <MarketPage /> },
                 { title: "Rankings", icon: Icons.PieChart, component: <RankingsPage /> },
-                { title: "Strategy", icon: Icons.Calendar, component: <StrategyPage /> },
                 { title: "Target Profile", icon: Icons.Users, component: <TargetProfilePage /> },
                 { title: "Deal Economics", icon: Icons.DollarSign, component: <DealEconomicsPage /> },
+                { title: "Roadmap", icon: Icons.Calendar, component: <StrategyPage /> },
                 { title: "Growth", icon: Icons.Rocket, component: <GrowthPage /> },
                 { title: "Risks", icon: Icons.ShieldAlert, component: <RiskPage /> },
                 { title: "Exit", icon: Icons.Briefcase, component: <ExitPage /> },
